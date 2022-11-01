@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Navbar() {
+export default function Navbar({ variant }) {
   return (
-    <header className='bg-black'>
-      <div className='flex justify-between max-w-[1012px] mx-auto px-6 items-center py-4'>
+    <header className='absolute w-full z-50'>
+      <div className='flex justify-between max-w-[1168px] mx-auto px-6 items-center py-4'>
         <picture>
           <img
             src='/assets/icons/logo_white.svg'
@@ -11,7 +11,10 @@ export default function Navbar() {
             className='w-[160px]'
           />
         </picture>
-        <nav className='hidden lg:flex gap-9 text-white items-center font-semibold'>
+        <nav
+          className='hidden lg:flex gap-9 items-center font-semibold 
+            text-white'
+        >
           <Link href='projects'>Projects</Link>
           <Link href='services'>Services</Link>
           <Link href='about-us'>About us</Link>

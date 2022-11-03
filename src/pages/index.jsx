@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import products from '../data/products';
 import servicesData from '../data/services';
+import Button from './components/Button';
 import IconCard from './components/IconCard';
 import ProductShowcase from './components/ProductShowcase';
 import TextBlock from './components/TextBlock';
@@ -16,7 +17,7 @@ export default function Home() {
       <main>
         <section className='bg-black bg-opacity-90 relative'>
           <div className='bg-hero_noise absolute h-full w-full z-[-1]'></div>
-          <div className='max-w-[1168px] mx-auto px-6  pt-20 lg:pt-48 pb-28 lg:pb-44'>
+          <div className='max-w-[1168px] mx-auto px-6 pt-20 lg:pt-48 pb-28 lg:pb-44'>
             <TextBlock
               variant='bigger'
               space='gap-[20px]'
@@ -47,6 +48,33 @@ development agency.'
             </div>
           </div>
         </section>
+        <section className='bg-[#f6f7f7] relative'>
+          <div className='max-w-[1168px] mx-auto px-6 flex flex-col lg:flex-row gap-[50px] lg:gap-[150px] py-24 lg:py-36'>
+            <h3 className='text-[40px] lg:text-[54px] leading-[52px] lg:leading-[72px] max-w-[280px] lg:max-w-[390px] font-bold'>
+              Agile team on demand
+            </h3>
+            <div className='lg:absolute lg:bottom-0 lg:right-0'>
+              <picture>
+                <img
+                  className='w-[80%] ml-0 lg:ml-auto '
+                  src='/assets/images/agile_team.png'
+                  alt='agile team'
+                />
+              </picture>
+            </div>
+            <div className='max-w-[352px]'>
+              <p>
+                By hiring and managing talented people with skills specific to
+                your project, we build you a team that’s accomplished, agile and
+                scalable in both directions.
+              </p>
+              <div className='mt-8'>
+                <Button>See how it works</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
       </main>
     </>
   );

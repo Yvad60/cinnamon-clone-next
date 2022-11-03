@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Button from './Button';
 
 export default function Navbar({ variant }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,9 +59,7 @@ export default function Navbar({ variant }) {
             )}
           </Link>
           <Link href='contact'>
-            <button className='py-3 px-10 bg-primary_blue text-white border-t-white border-t-2 shadow-[10px 0px 0px 0px white inset]'>
-              Contact Us
-            </button>
+            <Button>Contact Us</Button>
           </Link>
         </nav>
         <nav className='lg:hidden'>

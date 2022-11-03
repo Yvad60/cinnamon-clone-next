@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button from './Button';
 
-export default function Navbar({ variant }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   function handleScrollChange() {
@@ -14,6 +14,9 @@ export default function Navbar({ variant }) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScrollChange);
+    return () => {
+      window.removeEventListener('scroll', setIsScrolled);
+    };
   }, []);
 
   return (

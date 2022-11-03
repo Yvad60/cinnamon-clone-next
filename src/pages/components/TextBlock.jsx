@@ -27,6 +27,11 @@ export default function TextBlock({
     case 'small': {
       headingStyles = 'text-[24px] leading-[36px] font-bold';
       descriptionStyles = 'text-[16px] leading-[26px] text-zinc-00 font-medium';
+      break;
+    }
+    case 'avatar-tiny': {
+      headingStyles = 'text-2xl leading-9 font-bold';
+      descriptionStyles = 'font-medium';
     }
   }
 

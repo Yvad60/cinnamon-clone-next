@@ -29,7 +29,7 @@ export default function ProductShowcase({
         </picture>
       </div>
       <div className='text-xs lg:text-sm text-gray-500 uppercase font-bold flex gap-5 tracking-tighter lg:gap-9'>
-        {tagList.map((tag, index) => (
+        {tagList?.map((tag, index) => (
           <p key={index}>{tag}</p>
         ))}
       </div>

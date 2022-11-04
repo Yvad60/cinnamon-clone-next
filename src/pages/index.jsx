@@ -1,129 +1,72 @@
 import Head from 'next/head';
-import products from '../data/products';
-import servicesData from '../data/services';
-import Button from './components/Button';
-import IconCard from './components/IconCard';
-import ProductShowcase from './components/ProductShowcase';
-import TextBlock from './components/TextBlock';
+import Link from 'next/link';
+import BlogPostCard from '../components/BlogPostCard';
+import Button from '../components/Button';
+import Hero from '../components/sections/Hero';
+import Products from '../components/sections/Products';
+import Services from '../components/sections/Services';
+import Team from '../components/sections/Team';
+import TextBlock from '../components/TextBlock';
 
 export default function Home() {
+  const internationalTeams = [
+    'Product design',
+    'Project management',
+    'Web development',
+    'Human resources',
+    'Mobile development',
+    'Sales',
+    'Quality assurance',
+    'Fluffy friends',
+    'Marketing',
+  ];
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>CINNAMON | All software, zero bullshit.</title>
         <meta name='description' content='Cinamon clone' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <section className='bg-black bg-opacity-90 relative'>
-          <div className='bg-hero_noise absolute h-full w-full z-[-1]'></div>
-          <div className='max-w-[1168px] mx-auto px-6 pt-20 lg:pt-48 pb-28 lg:pb-44'>
-            <TextBlock
-              variant='bigger'
-              space='gap-[20px]'
-              textShade='light'
-              heading='Results focused design &
-development agency.'
-              description='Extend your team with our high performing specialists or hire us to shape your product from scratch. Either way, well get your product off the ground and build a momentum for your success.'
-            />
-          </div>
-        </section>
-        <section className='my-20 lg:my-36'>
-          <div className='max-w-[1168px] mx-auto px-6 flex flex-col gap-16 lg:gap-40'>
-            {products.map((product, index) => (
-              <ProductShowcase {...product} key={index} />
-            ))}
-          </div>
-        </section>
-        <section className='bg-black bg-opacity-90 relative'>
-          <div className='bg-hero_noise absolute h-full w-full z-[-1]'></div>
-          <div className='max-w-[1168px] mx-auto px-6 py-20 flex  flex-col lg:flex-row items-start gap-28'>
-            <h2 className='text-white text-[40px] lg:text-[54px] leading-[72px] font-bold'>
-              Our services
-            </h2>
-            <div className='grid grid-cols-1 lg:grid-cols-2 place-content-stretch flex-1 gap-y-24'>
-              {servicesData.map((service, index) => (
-                <IconCard {...service} key={index} />
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className='bg-[#f6f7f7] relative'>
-          <div className='max-w-[1168px] mx-auto px-6 flex flex-col lg:flex-row gap-[50px] lg:gap-[150px] py-24 lg:py-36'>
-            <h3 className='text-[40px] lg:text-[54px] leading-[52px] lg:leading-[72px] max-w-[280px] lg:max-w-[390px] font-bold'>
-              Agile team on demand
-            </h3>
-            <div className='lg:absolute lg:bottom-0 lg:right-0'>
-              <picture>
-                <img
-                  className='w-[80%] ml-0 lg:ml-auto '
-                  src='/assets/images/agile_team.png'
-                  alt='agile team'
+        <Hero />
+        <Products />
+        <Services />
+        <Team />
+        {/* Who are we section */}
+        <section className='bg-[#f6f7f7]'>
+          <div className='max-w-[1168px] mx-auto px-6 py-24 lg:py-52'>
+            <div className='flex flex-col gap-10 lg:gap-14'>
+              <div className='max-w-[448px] relative '>
+                <TextBlock
+                  heading='Who we are'
+                  variant='medium'
+                  space='gap-8'
+                  description='Meet our international teams made up of 86 innovators, branched into 8 departments, that influence the market throughout 20 different countries.'
                 />
-              </picture>
-            </div>
-            <div className='max-w-[352px]'>
-              <p>
-                By hiring and managing talented people with skills specific to
-                your project, we build you a team that’s accomplished, agile and
-                scalable in both directions.
-              </p>
-              <div className='mt-8'>
-                <Button>See how it works</Button>
               </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div className='max-w-[1168px] mx-auto px-6 py-36 relative'>
-            <div className='absolute top-12 -ml-[30px]  lg:-ml-[60px] z-[-1]'>
-              <h2 className='text-[200px] text-[#edebfe] font-bold'>“</h2>
-            </div>
-            <div className='max-w-[658px] flex flex-col gap-8'>
-              <TextBlock
-                variant='medium'
-                space='gap-8'
-                heading='They’re consistent, and the communication is good.'
-                description='When I have a deadline, they would work extra hours on the weekend and after hours. Cinnamon gives the impression of being a smaller team that’s focused on customers.'
-              />
-              <div className='flex gap-4'>
+              <div className='hidden lg:grid grid-cols-2 max-w-[784px] gap-y-8'>
+                {internationalTeams.map((teamName, index) => (
+                  <h3 className='font-bold text-xl' key={index}>
+                    {teamName}
+                  </h3>
+                ))}
+              </div>
+              <div className='lg:absolute right-0 lg:-mt-16'>
                 <picture>
                   <img
-                    className='w-[68px]'
-                    src='/assets/images/GarinProfile.webp'
+                    className='w-[80%] lg:w-full'
+                    src='/assets/images/who-we-are.webp'
                     alt=''
                   />
                 </picture>
-                <TextBlock
-                  heading='Garin Toren,'
-                  description='CEO, ping'
-                  variant='avatar-tiny'
-                />
               </div>
-              <div className='flex flex-col justify-between mt-4 gap-8'>
-                <div className='flex gap-14'>
-                  <picture>
-                    <img
-                      className='w-[48px]'
-                      src='/assets/images/left_blue_arrow.png'
-                      alt='left blue arrow'
-                    />
-                  </picture>
-                  <picture>
-                    <img
-                      className='w-[48px]'
-                      src='/assets/images/right_blue_arrow.png'
-                      alt='left blue arrow'
-                    />
-                  </picture>
-                </div>
-                <a className='uppercase font-bold text-primary_blue lg:absolute right-0 underline underline-offset-8'>
-                  View case study
-                </a>
+              <div className=''>
+                <Button>Read about us</Button>
               </div>
             </div>
           </div>
         </section>
+
         <section className='bg-[#f6f7f7] relative'>
           <div className='max-w-[1168px] mx-auto px-6 flex flex-col lg:flex-row lg:items-end gap-[50px] lg:gap-[150px] py-24 lg:py-36'>
             <picture>
@@ -154,7 +97,166 @@ development agency.'
             </div>
           </div>
         </section>
+        <section>
+          <div className='max-w-[1168px] mx-auto px-6 py-24 lg:py-36'>
+            <div className='flex gap-8 overflow-x-auto'>
+              <BlogPostCard />
+              <BlogPostCard />
+              <BlogPostCard />
+            </div>
+          </div>
+        </section>
       </main>
+      <footer>
+        <section>
+          <div>
+            <div className='pt-36 px-16 flex flex-col text-white'>
+              <div className=' grid grid-cols-3 flex-1 pb-24'>
+                <div className='col-span-1 flex flex-col gap-8'>
+                  <h1 className='text-3xl tracking-wide font-bold'>CINNAMON</h1>
+                  <ul className=' flex flex-col text-zinc-400'>
+                    <li className=''>
+                      <Link href={''}>Home</Link>
+                    </li>
+                    <li className=''>
+                      <Link href={''}>Projects</Link>
+                    </li>
+                    <li className=''>
+                      <Link href={''}>Services</Link>
+                    </li>
+                    <li className=''>
+                      <Link href={''}>About Us</Link>
+                    </li>
+                    <li className=''>
+                      <Link href={''}>Careers</Link>
+                    </li>
+                    <li className=''>
+                      <Link href={''}>Blog</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className='col-span-2 space-y-10 pl-16 pt-6'>
+                  <h1 className='text-3xl font-bold'>
+                    All software, zero bullshit
+                  </h1>
+                  {/* <div className='grid grid-cols-3 space-x-24'>
+                    <Header_paragraph
+                      heading={'Zagreb'}
+                      paragraph={
+                        'Slavonska avenija 6,10000, Zagreb, Croatia +385 99 347 3103'
+                      }
+                    />
+                    <Header_paragraph
+                      heading={'New York'}
+                      paragraph={
+                        '500 7th Ave, New York, NY 10018, United States'
+                      }
+                    />
+                    <Header_paragraph
+                      heading={'Belgrade'}
+                      paragraph={
+                        'Bulevar vojvode Mišića 37 11000, Belgrade, Serbia'
+                      }
+                    />
+                  </div> */}
+                </div>
+              </div>
+              <div className=' flex flex-col gap-8 divide-y-2 divide-zinc-500'>
+                <div className='grid grid-cols-3 gap-56'>
+                  <Link
+                    className='place-self-end underline underline-offset-1 pr-8'
+                    href={''}
+                  >
+                    hello@cinnamon.agency
+                  </Link>
+                  <div className='flex flex-col gap-4 pr-12 pt-6'>
+                    <p className='font-bold '>Our newsletter</p>
+                    <div class='flex items-center border-b border-zinc-400 py-2'>
+                      <input
+                        className='text-lg bg-transparent text-zinc-400 outline-transparent underline underline-offset-8'
+                        type={'text'}
+                        placeholder={'Your E-mail'}
+                      />
+                    </div>
+
+                    <Button text={'Subscribe'} />
+                  </div>
+                  <div className='flex flex-col gap-4 pt-6'>
+                    <picture>
+                      <img
+                        className='w-[12rem]'
+                        src='/Images/Footer/pangea-badge.svg'
+                        alt=''
+                      />
+                    </picture>
+                    <picture>
+                      <img
+                        className='max-w-[12rem]'
+                        src='/Images/Footer/clutch-badge.webp'
+                        alt=''
+                      />
+                    </picture>
+                  </div>
+                </div>
+                <div className='flex gap-8 justify-between pt-8'>
+                  <div className='flex gap-8 text-sm text-zinc-400'>
+                    <p>2022 Cinnamon</p>
+                    <p className='underline underline-offset-8'>
+                      Privacy Policy
+                    </p>
+                  </div>
+                  <div>
+                    <ul className=' flex gap-8'>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/linkedin.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/dribble.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/behance.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/instagram.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/facebook.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                      <li className=''>
+                        <Link href={''}>
+                          <picture>
+                            <img src='/Images/Footer/wifi.svg' alt='' />
+                          </picture>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
     </>
   );
 }

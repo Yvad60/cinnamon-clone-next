@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/pages/**/*.{js,jsx}', './src/components/**/*.{js,jsx}'],
   theme: {
     extend: {
+      maxWidth: {
+        max_size: '73rem',
+      },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
       },

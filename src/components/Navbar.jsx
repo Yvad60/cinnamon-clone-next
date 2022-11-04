@@ -28,7 +28,11 @@ export default function Navbar() {
       <div className='flex justify-between max-w-[1168px] mx-auto px-6 items-center py-4'>
         <picture>
           <img
-            src='/assets/icons/logo_white.svg'
+            src={
+              isScrolled
+                ? '/assets/icons/logo_dark.svg'
+                : '/assets/icons/logo_white.svg'
+            }
             alt='white logo'
             className='w-[160px]'
           />
